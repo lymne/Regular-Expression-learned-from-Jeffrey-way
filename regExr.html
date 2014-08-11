@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+	<style>
+	body{
+		color:white;
+		background: black;
+	}
+	 .find {
+		background: orange;
+
+	}
+
+	.exr {
+		background: green;
+		font-weight: bold;
+	
+	
+	}
+	</style>
+</head>
+<body>
+	<ol>
+		<li>
+			<section>
+				<h3>典型字符串匹配</h3>
+				<p>
+					常见的单个字符串查询其实都是正则表达式了，<span class="exr"><b>/hello/</b></span> 在<span class="find">hello</span> world中会匹配橙色部分，但是这样只匹配遇到的第一个字符串，要匹配所有，需加上g，即/hello/g 
+					<br>
+					如果要匹配一句话 "hello world."（注意句号），那是不是写成 <span class="exr">/hello world./</span>呢？不是，因为 <span class="exr">.</span>在正则表达式中的意义是匹配任意一个字符，除了断行。
+					要写成<span class="exr">/hello world\./</span> 加上转义符<span class="exr">\</span> 
+					<br>如果要让一个字符成为可选项，在其后面加上<span class="exr">?</span> "hello world."如果后面的句号为可选，则正则表达式写为<span class="exr">/hello world\.?/</span><br>
+					如果要一个字符串成为可选，可以加上(),即<span class="exr">/(hello)? world\.?/</span> 注意world前面的空格。
+				</p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3> + 和 | 的使用：网址匹配</h3>
+				<p>
+					<span class="exr">/+/</span> Matches 1 or more of the preceeding token. This is a greedy match, and will match as many characters as possible before satisfying the next token.  <br>连续匹配1个或多个加号前面的字符
+					比如<span class="exr">/g+/</span>会匹配<span class="find">ggg</span>sggg
+					假如要匹配<br> https://www.XXXXXX.com <br>http://www.xxxxxx.com <br> ftp://www.xxxxx.com <br>
+					这三种格式的链接，可以写 <span class="exr">/(ht|fp)s?://.+/g</span> <br> 中间的 <span class="exr">/|/</span> 表示或，<span class="exr">/.+/</span>这一个表达式可以匹配当前行所有字符，直到断行。
+					如果是单纯的<span class="exr">/.+/</span>，那就等于是Crtl+A全选所有东西了。一般是前面的筛选条件选出符合部分，后面不限字符个数的时候使用。
+				</p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3>^ 和 $ 的使用：文件格式匹配</h3>
+				<p><span class="exr">/^/</span> 用法是匹配字符串中第一个出现的元素（可以是字符串或者单个字母）比如<span class="exr">/^hello/</span> 就可以匹配 <span class="find">hello</span> world</p> 但是不会匹配 no hello world 。<span class="exr">/$/</span>则是与 <span class="exr">/^/</span> 相反，匹配字符串中最后一个出现的元素。 比如<span class="exr">/jpg$/</span>会匹配  jpg.<span class="find">jpg</span>。 这两个正则表达式可以一起使用，达到筛选后缀文件的效果。比如要查找jpg,png,gif格式的图片文件，可以用
+				<span class="exr">/^.+\.(jpg|png|gif)$/gm</span>  后面的 <span class="exr">gm</span> 表示全局、多行查询。
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+	</ol>
+</body>
+</html>
