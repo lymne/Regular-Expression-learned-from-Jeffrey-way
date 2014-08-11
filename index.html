@@ -1,98 +1,104 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+	<style>
+	body{
+		color:white;
+		background: black;
+	}
+	 .find {
+		background: orange;
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	}
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Regular-expression-learned-from-jeffrey-way by lymne</title>
-  </head>
-
-  <body>
-    <a id="forkme_banner" href="https://github.com/lymne/Regular-Expression-learned-from-Jeffrey-way">View on GitHub</a>
-    <div class="shell">
-
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Regular-expression-learned-from-jeffrey-way</h1>
-            <h2></h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/lymne/Regular-Expression-learned-from-Jeffrey-way/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/lymne/Regular-Expression-learned-from-Jeffrey-way/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/lymne">lymne</a> can be found on <a href="https://github.com/lymne/Regular-Expression-learned-from-Jeffrey-way">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
-    </div>
-
-    
-  </body>
+	.exr {
+		background: green;
+		font-weight: bold;
+	
+	
+	}
+	</style>
+</head>
+<body>
+	<ol>
+		<li>
+			<section>
+				<h3>典型字符串匹配</h3>
+				<p>
+					常见的单个字符串查询其实都是正则表达式了，<span class="exr"><b>/hello/</b></span> 在<span class="find">hello</span> world中会匹配橙色部分，但是这样只匹配遇到的第一个字符串，要匹配所有，需加上g，即/hello/g 
+					<br>
+					如果要匹配一句话 "hello world."（注意句号），那是不是写成 <span class="exr">/hello world./</span>呢？不是，因为 <span class="exr">/ . /</span>在正则表达式中的意义是匹配任意一个字符，除了断行。
+					要写成<span class="exr">/hello world\. /</span> 加上转义符<span class="exr">\</span> 
+					<br>如果要让一个字符成为可选项，在其后面加上<span class="exr">?</span> "hello world."如果后面的句号为可选，则正则表达式写为<span class="exr">/hello world\.?/</span><br>
+					如果要一个字符串成为可选，可以加上(),即<span class="exr">/(hello)? world\.?/</span> 注意world前面的空格。
+				</p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3> + 和 | 的使用：网址匹配</h3>
+				<p>
+					<span class="exr">/+/</span> Matches 1 or more of the preceeding token. This is a greedy match, and will match as many characters as possible before satisfying the next token.  <br>连续匹配1个或多个加号前面的字符
+					比如<span class="exr">/g+/</span>会匹配<span class="find">ggg</span>sggg
+					假如要匹配<br> https://www.XXXXXX.com <br>http://www.xxxxxx.com <br> ftp://www.xxxxx.com <br>
+					这三种格式的链接，可以写 <span class="exr">/(ht|fp)s?://.+/g</span> <br> 中间的 <span class="exr">/|/</span> 表示或，<span class="exr">/.+/</span>这一个表达式可以匹配当前行所有字符，直到断行。
+					如果是单纯的<span class="exr">/.+/</span>，那就等于是Crtl+A全选所有东西了。一般是前面的筛选条件选出符合部分，后面不限字符个数的时候使用。
+				</p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3>^ 和 $ 的使用：文件格式匹配</h3>
+				<p><span class="exr">/^/</span> 用法是匹配字符串中第一个出现的元素（可以是字符串或者单个字母）比如<span class="exr">/^hello/</span> 就可以匹配 <span class="find">hello</span> world</p> 但是不会匹配 no hello world 。<span class="exr">/$/</span>则是与 <span class="exr">/^/</span> 相反，匹配字符串中最后一个出现的元素。 比如<span class="exr">/jpg$/</span>会匹配  jpg.<span class="find">jpg</span>。 这两个正则表达式可以一起使用，达到筛选后缀文件的效果。比如要查找jpg,png,gif格式的图片文件，可以用
+				<span class="exr">/^.+\.(jpg|png|gif)$/gm</span>  后面的 <span class="exr">gm</span> 表示全局、多行查询。
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3>贪心匹配</h3>
+				<p> <span class="exr">/H.+H/</span>这个正则表达式的意义是从 H 开头一直匹配，直到遇到最后一个 H，所以是 greedy match。举例子，<span class="find">Hello how are you Hello. And he said,"H</span>ello to you!". 如果只想匹配到
+					<span class="find">Hello how are you H</span>ello. And he said,"Hello to you!". 可以在 H 前面加上<span class="exr">/ ? /</span>，即是<span class="exr">/H.+?H/</span>
+				</p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+		<li>
+			<section>
+				<h3></h3>
+				<p></p>
+			</section>
+		</li>
+	</ol>
+</body>
 </html>
